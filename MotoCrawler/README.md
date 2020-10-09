@@ -1,5 +1,5 @@
 "Moto Crawler" is a project that allows user to store searches of his/her favourite cars.
-It is being developped solely by me - Pawel Sarapata, young back-end developper wannabe from Poland.
+It is being developed solely by me - Pawel Sarapata, young back-end developer wannabe from Poland.
 I am developping it for my personal purposes ONLY, therefore be advised NOT to use its' code commercially as that would have legal consequences.
 
 Moto Crawler is being built using Python 3, supported by Django, Scrapy and Celery frameworks/utilities.
