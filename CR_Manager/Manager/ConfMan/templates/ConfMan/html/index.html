@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>{% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'homepage.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'homepage.js' %}">
+  <head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'ConfMan/homepage.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'ConfMan/menu.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'ConfMan/homepage.js' %}">
     <title>Homepage</title>
   </head>
   <body>
     <div class="menu-wrap">
       <input class="toggler" type="checkbox">
-      <div class="hamburger">
-        <div></div>
-      </div>
+      <div class="hamburger"><div></div></div>
       <div class="menu">
         <div>
           <div>
@@ -24,12 +27,12 @@
       </div>
       <header class="showcase">
         <div class="container showcase-inner">
-          <h1>Welcome</h1>
-          <p>Lorem Ipsum</p><a class="button" href="/Read_more/">Read More</a>
+          <h1>Welcome!</h1>
+          <p>This is a Conference Room Manager app. Enjoy!</p>
+          <a class="btn" href="/Read_more/">Read More</a>
         </div>
       </header>
     </div>
-  </body>
   <footer>
     <div id="footer-above">
       <div>
@@ -49,4 +52,5 @@
       <script>document.write(new Date().getFullYear())</script>. All Rights Reversed
     </div>
   </footer>
+  </body>
 </html>
