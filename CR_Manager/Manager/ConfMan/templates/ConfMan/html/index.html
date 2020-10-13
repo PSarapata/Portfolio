@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>{% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'homepage.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'homepage.js' %}">
+    <title>Homepage</title>
+  </head>
+  <body>
+    <div class="menu-wrap">
+      <input class="toggler" type="checkbox">
+      <div class="hamburger">
+        <div></div>
+      </div>
+      <div class="menu">
+        <div>
+          <div>
+            <ul>
+              <li><a class="button" href="/home/">Home</a></li>
+              <li><a class="button" href="/about/">About</a></li>
+              <li><a class="button" href="/make-reservation">Make reservation</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <header class="showcase">
+        <div class="container showcase-inner">
+          <h1>Welcome</h1>
+          <p>Lorem Ipsum</p><a class="button" href="/Read_more/">Read More</a>
+        </div>
+      </header>
+    </div>
+  </body>
+  <footer>
+    <div id="footer-above">
+      <div>
+        <h3>About this page</h3>
+        <p>Made with<i class="fa fa-fw fa-coffee"></i> and<i class="fa fa-fw fa-music"></i><br>by<a href="https://github.com/PSarapata">Pawel Sarapata</a>.</p>
+      </div>
+      <div>
+        <h3>Around the Web</h3>
+        <ul>
+          <li><a class="button social" href="https://www.linkedin.com"><i class="fa fa-fw fa-linkedin"></i></a></li>
+          <li><a class="button social" href="https://www.facebook.com"><i class="fa fa-fw fa-facebook-square"></i></a></li>
+          <li><a class="button social" href="https://plus.google.com/116381125902020058105"><i class="fa fa-fw fa-google-plus"></i></a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer-below">Pawel Sarapata
+      <script>document.write(new Date().getFullYear())</script>. All Rights Reversed
+    </div>
+  </footer>
+</html>
