@@ -3,16 +3,17 @@
   <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/8be31ac26c.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'ConfMan/homepage.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'ConfMan/menu.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'ConfMan/homepage.js' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'ConfMan/footer.css' %}">
     <title>Homepage</title>
   </head>
   <body>
     <div class="menu-wrap">
-      <input class="toggler" type="checkbox">
+      <input type="checkbox" class="toggler">
       <div class="hamburger"><div></div></div>
       <div class="menu">
         <div>
@@ -25,6 +26,7 @@
           </div>
         </div>
       </div>
+    </div>
       <header class="showcase">
         <div class="container showcase-inner">
           <h1>Welcome!</h1>
@@ -33,22 +35,25 @@
         </div>
       </header>
     </div>
+    <!-- Site footer -->
   <footer>
     <div id="footer-above">
-      <div>
-        <h3>About this page</h3>
+      <div id="upper-footer-div">
+        <h3>Conference Room Manager</h3>
         <p>Made with<i class="fa fa-fw fa-coffee"></i> and<i class="fa fa-fw fa-music"></i><br>by<a href="https://github.com/PSarapata">Pawel Sarapata</a>.</p>
       </div>
-      <div>
+      <div id="upper-footer-div-2">
         <h3>Around the Web</h3>
         <ul>
-          <li><a class="button social" href="https://www.linkedin.com"><i class="fa fa-fw fa-linkedin"></i></a></li>
-          <li><a class="button social" href="https://www.facebook.com"><i class="fa fa-fw fa-facebook-square"></i></a></li>
-          <li><a class="button social" href="https://plus.google.com/116381125902020058105"><i class="fa fa-fw fa-google-plus"></i></a></li>
+          <li><a class="button social" href="https://www.linkedin.com/in/pawel-sarapata-560524157/"><i class="fa fa-fw fa-linkedin"></i></a></li>
+          <li><a class="button social" href="https://www.facebook.com/pspsarapata"><i class="fa fa-fw fa-facebook-square"></i></a></li>
+          <li><a class="button social" href="https://github.com/PSarapata/"><i class="fa fa-fw fa-github"></i></a></li>
+          <li><a class="button social" href="https://web.whatsapp.com"><i class="fa fa-fw fa-whatsapp"></i></a></li>
         </ul>
       </div>
     </div>
-    <div id="footer-below">Pawel Sarapata
+    <div id="footer-below">
+      Pawel Sarapata
       <script>document.write(new Date().getFullYear())</script>. All Rights Reversed
     </div>
   </footer>
