@@ -6,8 +6,16 @@
         <ul>
             {% for room in room_list %}
                 <li>
-                    <b>Room</b> #{{ room.pk }} : {{ room.name }} <b>Capacity:</b> ({{ room.capacity }})
-                    <b>Projector available?</b> ({{ room.has_projector }})
+                    <b>Room</b> #{{ room.pk }} : <a href="{{ room.get_absolute_url }}"><em>{{ room.name }}</em></a>,
+                    <b>Capacity:</b> ({{ room.capacity }})<b>Projector available?</b> ({{ room.has_projector }})
+                    <br>
+                    <b>Available:</b> {{ room.availability }}
+                    <a href="/room/modify/{{ room.pk }}/">
+                        <button>Edit</button></a>
+                    <a href="/room/delete/{{ room.pk }}/">
+                        <button>Delete</button></a>
+                    <a href="/room/reserve/{{ room.pk }}">
+                        <button>Reserve</button></a>
                 </li>
             {% endfor %}
         </ul>

@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.timezone import now
 
 
 class Room(models.Model):
@@ -7,4 +8,13 @@ class Room(models.Model):
     has_projector = models.NullBooleanField(default="No data")
 
     def get_absolute_url(self):
-        return "/rooms/%s/" % self.pk
+        return "/room/%s/" % self.pk
+
+
+class Reservation(models.Model):
+    date = models.DateField(default=now())
+    room_id = models.ForeignKey(Room, on_delete=models.CASCADE)
+    comment = models.TextField(null=True)
+
+    class Meta:
+        unique_together = ('date', 'room_id')

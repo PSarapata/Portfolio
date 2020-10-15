@@ -1,8 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .models import Room
+from django.urls import reverse_lazy
 import django.views.generic as dv
-from django.urls import reverse
 
 
 class HomeView(dv.View):
@@ -21,3 +21,21 @@ class RoomListView(dv.ListView):
     template_name = 'ConfMan/html/room_list.html'
     queryset = Room.objects.all()
     context_object_name = 'room_list'
+
+
+class RoomDeleteView(dv.DeleteView):
+    model = Room
+    template_name = 'ConfMan/html/confirm_delete.html'
+    success_url = reverse_lazy('list view')
+
+
+class RoomModifyView(dv.UpdateView):
+    model = Room
+    fields = [
+        'name',
+        'capacity',
+        'has_projector'
+    ]
+    template_name = 'ConfMan/html/room_modify.html'
+    success_url = reverse_lazy('list view')
+
