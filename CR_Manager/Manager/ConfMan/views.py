@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .models import Room
 import django.views.generic as dv
+from django.urls import reverse
 
 
 class HomeView(dv.View):

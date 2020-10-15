@@ -6,7 +6,8 @@
         <ul>
             {% for room in room_list %}
                 <li>
-                    {{ room.name }}({{ room.capacity }}) ({{ room.has_projector }})"
+                    <b>Room</b> #{{ room.pk }} : {{ room.name }} <b>Capacity:</b> ({{ room.capacity }})
+                    <b>Projector available?</b> ({{ room.has_projector }})
                 </li>
             {% endfor %}
         </ul>
