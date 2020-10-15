@@ -1,0 +1,16 @@
+{% extends 'ConfMan/html/base.html' %}
+
+{% block content %}
+    <h1>Room List</h1>
+    {% if room_list %}
+        <ul>
+            {% for room in room_list %}
+                <li>
+                    {{ room.name }}({{ room.capacity }}) ({{ room.has_projector }})"
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no rooms in the database.</p>
+    {% endif %}
+{% endblock %}

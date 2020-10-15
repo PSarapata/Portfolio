@@ -1,19 +1,17 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://kit.fontawesome.com/8be31ac26c.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    {% load static %}
     <link rel="shortcut icon" type="image/png" href="{% static 'ConfMan/favicon.ico' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'ConfMan/homepage.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'ConfMan/menu.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'ConfMan/footer.css' %}">
-    <title>Homepage</title>
-  </head>
-  <body>
-    <div class="menu-wrap">
+    <title>Conference Manager App</title>
+</head>
+<body>
+  <div class="menu-wrap">
       <input type="checkbox" class="toggler">
       <div class="hamburger"><div></div></div>
       <div class="menu">
@@ -28,13 +26,10 @@
         </div>
       </div>
     </div>
-      <header class="showcase">
-        <div class="container showcase-inner">
-          <h1>Welcome!</h1>
-          <p>This is a Conference Room Manager app. Enjoy!</p>
-          <a class="btn" href="/Rooms/">List Rooms</a>
-        </div>
-      </header>
+    <div class="content container">
+        {% block content %}
+        {% endblock %}
+    </div>
     <!-- Site footer -->
   <footer>
     <div id="footer-above">
@@ -57,5 +52,5 @@
       <script>document.write(new Date().getFullYear())</script>. All Rights Reversed
     </div>
   </footer>
-  </body>
+</body>
 </html>

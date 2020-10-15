@@ -1,3 +1,7 @@
 from django.db import models
 
-# Create your models here.
+
+class Room(models.Model):
+    name = models.TextField(max_length=255, unique=True)
+    capacity = models.PositiveSmallIntegerField(null=False)
+    has_projector = models.NullBooleanField(default="No data")
