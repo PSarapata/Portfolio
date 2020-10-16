@@ -7,8 +7,8 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     {% load static %}
     <link rel="shortcut icon" type="image/png" href="{% static 'ConfMan/favicon.ico' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'ConfMan/homepage.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'ConfMan/menu.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'ConfMan/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'ConfMan/extras.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'ConfMan/footer.css' %}">
     <title>Homepage</title>
   </head>
@@ -20,9 +20,9 @@
         <div>
           <div>
             <ul>
-              <li><a class="button" href="#">Home</a></li>
-              <li><a class="button" href="/about/">About</a></li>
-              <li><a class="button" href="/rooms/">Make reservation</a></li>
+              <li><a class="button" href="/">Home</a></li>
+              <li><a class="button" href="/room/new/">Add Room</a></li>
+              <li><a class="button" href="/rooms/">Make Reservation</a></li>
             </ul>
           </div>
         </div>

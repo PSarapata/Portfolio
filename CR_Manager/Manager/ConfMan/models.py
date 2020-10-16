@@ -8,7 +8,7 @@ class Room(models.Model):
     has_projector = models.NullBooleanField(default="No data")
 
     def get_absolute_url(self):
-        return "/room/%s/" % self.pk
+        return "/room/detail/%s/" % self.pk
 
 
 class Reservation(models.Model):

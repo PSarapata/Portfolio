@@ -1,6 +1,9 @@
 {% extends 'ConfMan/html/base.html' %}
 
 {% block content %}
+    <header class="showcase">
+    <div class="container showcase-inner">
+    <div class="room-list">
     <h1>Room List</h1>
     {% if room_list %}
         <ul>
@@ -9,17 +12,28 @@
                     <b>Room</b> #{{ room.pk }} : <a href="{{ room.get_absolute_url }}"><em>{{ room.name }}</em></a>,
                     <b>Capacity:</b> ({{ room.capacity }})<b>Projector available?</b> ({{ room.has_projector }})
                     <br>
-                    <b>Available:</b> {{ room.availability }}
+                    <b>Available:</b>
+                    {% if room.unavailable %}
+                    <b>No</b>
+                    {% else %}
+                    <b>Yes</b>
+                    {% endif %}
                     <a href="/room/modify/{{ room.pk }}/">
-                        <button>Edit</button></a>
+                        <button class="btn">Edit</button></a>
                     <a href="/room/delete/{{ room.pk }}/">
-                        <button>Delete</button></a>
-                    <a href="/room/reserve/{{ room.pk }}">
-                        <button>Reserve</button></a>
+                        <button class="btn">Delete</button></a>
+                    <a href="/room/reserve/{{ room.pk }}/">
+                        <button class="btn">Reserve</button></a>
+                    <a href="/room/detail/{{ room.pk }}/">
+                        <button class="btn">Details</button>
+                    </a>
                 </li>
             {% endfor %}
         </ul>
     {% else %}
         <p>There are no rooms in the database.</p>
     {% endif %}
+    </div>
+    </div>
+    </header>
 {% endblock %}

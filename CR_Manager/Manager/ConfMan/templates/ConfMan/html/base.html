@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://kit.fontawesome.com/8be31ac26c.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" type="image/png" href="{% static 'ConfMan/favicon.ico' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'ConfMan/menu.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'ConfMan/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'ConfMan/extras.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'ConfMan/footer.css' %}">
     <title>Conference Room Manager</title>
 </head>
@@ -18,17 +19,17 @@
         <div>
           <div>
             <ul>
-              <li><a class="button" href="/home/">Home</a></li>
-              <li><a class="button" href="/about/">About</a></li>
-              <li><a class="button" href="/make-reservation">Make reservation</a></li>
+              <li><a class="button" href="/">Home</a></li>
+              <li><a class="button" href="/room/new/">Add Room</a></li>
+              <li><a class="button" href="/rooms/">Make Reservation</a></li>
             </ul>
           </div>
         </div>
       </div>
     </div>
-    <div class="content container">
-        {% block content %}
-        {% endblock %}
+    <div>
+           {% block content %}
+            {% endblock %}
     </div>
     <!-- Site footer -->
   <footer>

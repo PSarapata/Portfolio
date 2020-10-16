@@ -1,0 +1,16 @@
+{% extends 'ConfMan/html/base.html' %}
+
+<form method="post">{% csrf_token %}
+    <label>Search rooms:</label>
+    <input name="name" type="text" placeholder="Room name...">
+    <input name="capacity" type="number" min="0" max="2000" placeholder="Min room capacity">
+    <div>
+      <input type="checkbox" checked="checked" id="projector" name="projector">
+        <label for="projector">Has projector:</label>
+    </div>
+    <input type="submit" value="Search">
+</form>
+{% if object_list %}
+{% block content %}
+{% endblock %}
+{% endif %}

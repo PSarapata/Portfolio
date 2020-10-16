@@ -18,10 +18,13 @@ class CreateRoomView(dv.CreateView):
 
 
 class RoomListView(dv.ListView):
-    model = Room
-    template_name = 'ConfMan/html/room_list.html'
-    queryset = Room.objects.all()
-    context_object_name = 'room_list'
+    def get(self, request):
+        template_name = 'ConfMan/html/room_list.html'
+        queryset = Room.objects.all()
+        for room in queryset:
+            reservations = [reservation.date for reservation in room.reservation_set.all()]
+            room.unavailable = datetime.date.today() in reservations
+        return render(request, template_name, context={'room_list': queryset})
 
 
 class RoomDeleteView(dv.DeleteView):
@@ -44,7 +47,8 @@ class RoomModifyView(dv.UpdateView):
 class RoomReservationView(dv.UpdateView):
     def get(self, request, room_id):
         room = Room.objects.get(id=room_id)
-        return render(request, 'ConfMan/html/room_reserve.html', context={'room': room})
+        reservations = Reservation.objects.filter(room_id=room_id)
+        return render(request, 'ConfMan/html/room_reserve.html', context={'room': room, 'reservations': reservations})
 
     def post(self, request, room_id):
         room = Room.objects.get(id=room_id)
@@ -64,4 +68,42 @@ class RoomDetailView(dv.DetailView):
     def get(self, request, room_id):
         room = Room.objects.get(pk=room_id)
         reservations = Reservation.objects.filter(room_id=room_id)
-        return render(request, 'ConfMan/html/room_detail_view.html', context={'room': room, 'reservations': reservations})
+        return render(request, 'ConfMan/html/room_detail_view.html', context={'room': room,
+                                                                              'reservations': reservations})
+
+
+class RoomSearchView(dv.View):
+    def get(self, request):
+
+        name = request.GET.get("name")
+
+        capacity = request.GET.get("capacity")
+
+        capacity = int(capacity) if capacity else 0
+
+        projector = request.GET.get("projector", False)
+
+        rooms = Room.objects.all()
+
+        if projector:
+            rooms = rooms.filter(has_projector=projector)
+
+        if capacity:
+            rooms = rooms.filter(capacity__gte=capacity)
+
+        if name:
+            rooms.filter(name__icontains=name)
+
+        for room in rooms:
+            reservation_dates = [reservation.date for reservation in room.reservation_set.all()]
+
+            room.reserved = str(datetime.date.today()) in reservation_dates
+
+        return render(request, "ConfMan/html/search_form.html", context={"object_list": rooms})
+
+    # def get_queryset(self):
+    #     room_name = self.request.POST.get('name', '')
+    #     room_capacity = self.request.POST.get('capacity', 0)
+    #     projector = self.request.POST.get('projector', False)
+    #     qs = super(RoomSearchView, self).get_queryset()
+    #     return qs.filter(name=room_name, capacity__gt=room_capacity, has_projector=projector)

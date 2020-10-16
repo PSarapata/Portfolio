@@ -1,0 +1,15 @@
+{% extends 'ConfMan/html/search_form.html' %}
+<h1>Search results:</h1>
+{% if object_list %}
+<ul>
+    {% for room in object_list %}
+        <li>
+            Room name:{{ room.name }},
+            Room capacity:{{ room.capacity }}
+            Projector available? ({{ room.has_projector }})
+        </li>
+    {% endfor %}
+</ul>
+{% else %}
+    <p>Apologies, we did not find any results matching your query.</p>
+{% endif %}

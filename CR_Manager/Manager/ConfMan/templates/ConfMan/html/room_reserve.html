@@ -16,4 +16,12 @@
                 {{ error }}
             {% endif %}
     </form>
+    <label for="reservations">Reservations:</label>
+    <div id="reservations">
+        <ul>
+            {% for reservation in reservations %}
+                <li>Reservation for: {{ reservation.date }}, comment: {{ reservation.comment }}</li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}
