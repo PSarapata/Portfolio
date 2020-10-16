@@ -17,9 +17,15 @@ Reservation view:
 * Shows room availability.
 
 
+See overview of my project as of 16.10.2020 (almost fully functional but not fully styled): https://youtu.be/XnK4BtwEjMA
+
 Project is being developed by Pawel Sarapata, student of Coders Lab Poland. It is based on Django framework and Python3.
 
 UPDATES:
 v1.00: 09.10.2020 - Initialized
 v1.01: 10.10.2020 - Project renamed to "CR_Manager"
-v1.02: 
+v1.02: 13.10.2020 - root view created ('/'), changes to base structure of the project
+v1.03: 14.10.2020 - root view: fully functional
+v1.04: 15.10.2020 - Added views: /room/new/, /rooms/, /room/delete/<id>/, /room/modify/<id>/, /room/reserve/<id>
+		                  /room/detail/<id>/
+v1.05: 16.10.2020 - Upgraded functionality, added style to /rooms/ 
