@@ -45,8 +45,7 @@ class RoomModifyView(dv.UpdateView):
 class RoomReservationView(dv.View):
     def get(self, request, room_id):
         room = Room.objects.get(id=room_id)
-        reservations = Reservation.objects.filter(room_id=room_id)
-        return render(request, 'ConfMan/html/room_reserve.html', context={'room': room, 'reservations': reservations})
+        return render(request, 'ConfMan/html/room_reserve.html', context={'room': room})
 
     def post(self, request, room_id):
         room = Room.objects.get(id=room_id)
@@ -102,10 +101,3 @@ class RoomSearchView(dv.View):
                 "form": {'name': name, 'capacity': capacity, 'has_projector': has_projector}
             }
         )
-
-    # def get_queryset(self):
-    #     room_name = self.request.POST.get('name', '')
-    #     room_capacity = self.request.POST.get('capacity', 0)
-    #     projector = self.request.POST.get('projector', False)
-    #     qs = super(RoomSearchView, self).get_queryset()
-    #     return qs.filter(name=room_name, capacity__gt=room_capacity, has_projector=projector)

@@ -1,27 +1,33 @@
 {% extends 'ConfMan/html/base.html' %}
 
 {% block content %}
-    <form method="post">{% csrf_token %}
-        <div class="reservation-datefield">
-            <h1>Conference Room: {{ room.name }}</h1>
-            <label for="reservation-date">Reservation date:</label>
-            <input type="date" id="reservation-date" name="date">
+    <div class="showcase">
+        <div class="showcase-inner">
+            <div class="room-custom">
+                <form method="post">{% csrf_token %}
+                    <div class="reservation-datefield">
+                        <h1>Conference Room: {{ room.name }}</h1>
+                        <label for="reservation-date">Reservation date:</label>
+                        <input type="date" id="reservation-date" name="date">
+                    </div>
+                    <div class="reservation-comment">
+                        <label for="comment">Comment:</label>
+                        <textarea name="comment" id="comment" placeholder="Add a comment"></textarea>
+                        <input type="submit" value="Reserve">
+                    </div>
+                    {% if error %}
+                        {{ error }}
+                    {% endif %}
+                </form>
+                <label for="reservations">Reservations:</label>
+                <div id="reservations">
+                    <ul>
+                    {% for reservation in room.reservation_set.all %}
+                        <li>Reservation for: {{ reservation.date }}, comment: {{ reservation.comment }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="reservation-comment">
-            <label for="comment">Comment:</label>
-            <textarea name="comment" id="comment" placeholder="Add a comment"></textarea>
-            <input type="submit" value="Reserve">
-        </div>
-            {% if error %}
-                {{ error }}
-            {% endif %}
-    </form>
-    <label for="reservations">Reservations:</label>
-    <div id="reservations">
-        <ul>
-            {% for reservation in reservations %}
-                <li>Reservation for: {{ reservation.date }}, comment: {{ reservation.comment }}</li>
-            {% endfor %}
-        </ul>
     </div>
 {% endblock %}
