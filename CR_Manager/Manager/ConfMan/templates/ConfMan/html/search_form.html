@@ -1,16 +1,31 @@
 {% extends 'ConfMan/html/base.html' %}
-
-<form method="post">{% csrf_token %}
-    <label>Search rooms:</label>
-    <input name="name" type="text" placeholder="Room name...">
-    <input name="capacity" type="number" min="0" max="2000" placeholder="Min room capacity">
+{% block content %}
+<form action="/search/" method="get">
+    <label for="name">Search rooms:</label>
+        <input id="name" name="name" type="text" placeholder="Room name...">
+    <label for="capacity">Capacity:</label>
+        <input id="capacity" name="capacity" type="number" min="0" max="2000" placeholder="Min room capacity">
     <div>
-      <input type="checkbox" checked="checked" id="projector" name="projector">
-        <label for="projector">Has projector:</label>
+      <label for="projector">Has projector:</label>
+      <input type="checkbox" id="projector" name="projector" {% if form.has_projector %}checked=""{% endif %}>
     </div>
     <input type="submit" value="Search">
 </form>
-{% if object_list %}
-{% block content %}
-{% endblock %}
+
+{% if rooms %}
+<h1>Search results:</h1>
+<ul>
+    {% for room in rooms %}
+        <li>
+            Room name:{{ room.name }},
+            Room capacity:{{ room.capacity }}
+            Projector available? ({{ room.has_projector }})
+            Room reserved? ({{ room.reserved }})
+        </li>
+        {% empty %}
+        <li>Apologies, we did not find any results matching your query.</li>
+    {% endfor %}
+</ul>
+
 {% endif %}
+{% endblock %}

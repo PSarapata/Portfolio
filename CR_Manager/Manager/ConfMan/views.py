@@ -1,4 +1,3 @@
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .models import Room, Reservation
 from django.urls import reverse_lazy
@@ -6,9 +5,8 @@ import django.views.generic as dv
 import datetime
 
 
-class HomeView(dv.View):
-    def get(self, request):
-        return render(request, 'ConfMan/html/index.html')
+class HomeView(dv.TemplateView):
+    template_name = 'ConfMan/html/index.html'
 
 
 class CreateRoomView(dv.CreateView):
@@ -17,7 +15,7 @@ class CreateRoomView(dv.CreateView):
     template_name = 'ConfMan/html/room_create_form.html'
 
 
-class RoomListView(dv.ListView):
+class RoomListView(dv.View):
     def get(self, request):
         template_name = 'ConfMan/html/room_list.html'
         queryset = Room.objects.all()
@@ -44,7 +42,7 @@ class RoomModifyView(dv.UpdateView):
     success_url = reverse_lazy('list view')
 
 
-class RoomReservationView(dv.UpdateView):
+class RoomReservationView(dv.View):
     def get(self, request, room_id):
         room = Room.objects.get(id=room_id)
         reservations = Reservation.objects.filter(room_id=room_id)
@@ -65,11 +63,8 @@ class RoomReservationView(dv.UpdateView):
 
 
 class RoomDetailView(dv.DetailView):
-    def get(self, request, room_id):
-        room = Room.objects.get(pk=room_id)
-        reservations = Reservation.objects.filter(room_id=room_id)
-        return render(request, 'ConfMan/html/room_detail_view.html', context={'room': room,
-                                                                              'reservations': reservations})
+    model = Room
+    template_name = 'ConfMan/html/room_detail_view.html'
 
 
 class RoomSearchView(dv.View):
@@ -81,12 +76,12 @@ class RoomSearchView(dv.View):
 
         capacity = int(capacity) if capacity else 0
 
-        projector = request.GET.get("projector", False)
+        has_projector = request.GET.get("projector") == 'on'
 
         rooms = Room.objects.all()
 
-        if projector:
-            rooms = rooms.filter(has_projector=projector)
+        if has_projector:
+            rooms = rooms.filter(has_projector=has_projector)
 
         if capacity:
             rooms = rooms.filter(capacity__gte=capacity)
@@ -99,7 +94,14 @@ class RoomSearchView(dv.View):
 
             room.reserved = str(datetime.date.today()) in reservation_dates
 
-        return render(request, "ConfMan/html/search_form.html", context={"object_list": rooms})
+        return render(
+            request,
+            "ConfMan/html/search_form.html",
+            context={
+                "rooms": rooms,
+                "form": {'name': name, 'capacity': capacity, 'has_projector': has_projector}
+            }
+        )
 
     # def get_queryset(self):
     #     room_name = self.request.POST.get('name', '')

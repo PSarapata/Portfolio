@@ -5,7 +5,7 @@
     <p>Room capacity: {{ room.capacity }}</p>
     <p>Has projector: {{ room.has_projector }}</p>
     <ul>
-    {% for reservation in reservations %}
+    {% for reservation in room.reservation_set.all %}
         <li>Reservation for: {{ reservation.date }}, comment: {{ reservation.comment }}</li>
     {% endfor %}
     </ul>

@@ -1,5 +1,5 @@
 from django.db import models
-from django.utils.timezone import now
+from datetime import datetime
 
 
 class Room(models.Model):
@@ -12,7 +12,7 @@ class Room(models.Model):
 
 
 class Reservation(models.Model):
-    date = models.DateField(default=now())
+    date = models.DateField(default=datetime.now())
     room_id = models.ForeignKey(Room, on_delete=models.CASCADE)
     comment = models.TextField(null=True)
 
