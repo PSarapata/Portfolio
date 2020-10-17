@@ -1,9 +1,13 @@
 {% extends 'ConfMan/html/base.html' %}
 
 {% block content %}
+    <header class="showcase">
+    <div class="showcase-inner">
+    <div class="room-custom">
     <h1>Room name: {{ room.name }}</h1>
     <p>Room capacity: {{ room.capacity }}</p>
     <p>Has projector: {{ room.has_projector }}</p>
+    <br>
     <ul>
     {% for reservation in room.reservation_set.all %}
         <li>Reservation for: {{ reservation.date }}, comment: {{ reservation.comment }}</li>
@@ -12,4 +16,7 @@
     {% if error %}
         {{ error }}
     {% endif %}
+    </div>
+    </div>
+    </header>
 {% endblock %}

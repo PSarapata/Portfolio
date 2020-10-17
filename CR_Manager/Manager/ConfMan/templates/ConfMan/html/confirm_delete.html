@@ -1,11 +1,14 @@
 {% extends 'ConfMan/html/base.html' %}
 
 {% block content %}
+<div class="showcase">
+    <div class="room-special">
     <form method="post">{% csrf_token %}
         <p>Are you sure you want to delete room "{{ room.name }}" ?</p><br>
-        <input type="submit" value="Confirm">
-        <br><br>
+        <div class="two-buttons">
+            <input type="submit" value="Confirm"><a href="/rooms/"><input type="button" value="Abort"></a>
+        </div>
     </form>
-
-
+    </div>
+</div>
 {% endblock %}

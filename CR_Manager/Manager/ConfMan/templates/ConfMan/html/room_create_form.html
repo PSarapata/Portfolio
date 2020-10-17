@@ -1,8 +1,12 @@
 {% extends 'ConfMan/html/base.html' %}
 
 {% block content %}
-    <form method="post">{% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Save">
-    </form>
+    <div class="showcase">
+        <div class="room-special">
+            <form method="post">{% csrf_token %}
+                {{ form.as_p }}
+            <input type="submit" value="Save">
+            </form>
+        </div>
+    </div>
 {% endblock %}

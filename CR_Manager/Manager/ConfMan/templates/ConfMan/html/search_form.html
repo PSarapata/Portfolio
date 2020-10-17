@@ -1,31 +1,35 @@
 {% extends 'ConfMan/html/base.html' %}
 {% block content %}
-<form action="/search/" method="get">
-    <label for="name">Search rooms:</label>
-        <input id="name" name="name" type="text" placeholder="Room name...">
-    <label for="capacity">Capacity:</label>
-        <input id="capacity" name="capacity" type="number" min="0" max="2000" placeholder="Min room capacity">
-    <div>
-      <label for="projector">Has projector:</label>
-      <input type="checkbox" id="projector" name="projector" {% if form.has_projector %}checked=""{% endif %}>
-    </div>
-    <input type="submit" value="Search">
-</form>
+<div class="showcase">
+    <div class="room-special">
+    <form action="/search/" method="get">
+        <label for="name">Search rooms:</label>
+            <input id="name" name="name" type="text" placeholder="Room name...">
+        <label for="capacity">Capacity:</label>
+            <input id="capacity" name="capacity" type="number" min="0" max="2000" placeholder="Min room capacity">
+        <div>
+        <label for="projector">Has projector:</label>
+        <input type="checkbox" id="projector" name="projector" {% if form.has_projector %}checked=""{% endif %}>
+        </div>
+            <input type="submit" value="Search">
+    </form>
 
-{% if rooms %}
-<h1>Search results:</h1>
-<ul>
-    {% for room in rooms %}
-        <li>
-            Room name:{{ room.name }},
-            Room capacity:{{ room.capacity }}
-            Projector available? ({{ room.has_projector }})
-            Room reserved? ({{ room.reserved }})
-        </li>
+    {% if rooms %}
+        <h1>Search results:</h1>
+        <ul>
+        {% for room in rooms %}
+            <li>
+                Room name:{{ room.name }},
+                Room capacity:{{ room.capacity }}
+                Projector available? ({{ room.has_projector }})
+                Room reserved? {% if room.reserved %}(Yes){% else %}(No){% endif %}
+            </li>
         {% empty %}
-        <li>Apologies, we did not find any results matching your query.</li>
-    {% endfor %}
-</ul>
+            <li>Apologies, we did not find any results matching your query.</li>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
 
 {% endif %}
 {% endblock %}
