@@ -10,7 +10,7 @@ Here you can find an overview of this particular project (The styling I forgot b
                       
                       
                       
-                                                      https://youtu.be/DjPlpx1Vuuo
+                                       https://youtu.be/DjPlpx1Vuuo
 
 
 
@@ -20,4 +20,4 @@ In the meantime I've modified existing github repo for private purposes (created
 another app in private repo. I will share the code once it's done, check my profile for updates: 
 
 
-                                                      https://github.com/PSarapata/
+                                       https://github.com/PSarapata/
