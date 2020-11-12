@@ -14,6 +14,13 @@ Here you can find an overview of this particular project (The styling I forgot b
 
 
 
+BUMP! 12.11.2020:
+This is a project I've been working on for the recent week or so, check out this short presentation. I am currently waiting for permission to make this repository public as the ApiService and some features are based on code written by my mentor:
+
+
+                                      https://youtu.be/CYI9O-AcLTA
+
+
 
 
 In the meantime I've modified existing github repo for private purposes (created a multi-choice quiz app for my gf studying for an exam) and am currently building
