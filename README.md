@@ -20,7 +20,11 @@ This is a project I've been working on for the recent week or so, check out this
 
                                       https://youtu.be/CYI9O-AcLTA
 
+BUMP! 13.11.2020:
+Code for the above is now available on public repo:
 
+
+                              https://github.com/PSarapata/ToDoPlusTimetracker
 
 
 In the meantime I've modified existing github repo for private purposes (created a multi-choice quiz app for my gf studying for an exam) and am currently building
