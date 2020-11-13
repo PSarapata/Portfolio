@@ -27,8 +27,7 @@ Code for the above is now available on public repo:
                               https://github.com/PSarapata/ToDoPlusTimetracker
 
 
-In the meantime I've modified existing github repo for private purposes (created a multi-choice quiz app for my gf studying for an exam) and am currently building
-another app in private repo. I will share the code once it's done, check my profile for updates: 
+                                        Check my profile for updates: 
 
 
                                        https://github.com/PSarapata/
