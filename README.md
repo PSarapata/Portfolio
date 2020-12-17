@@ -1,4 +1,4 @@
-# Portfolio
+# Conference Room Manager
 
 After giving it more thought I decided to make it look more professional and create additional Repositories for each project I work on,
 instead of making one big "rubbish bin" to dump all the code in there. Of course the code in my public repos is just a pinch of what I've created.
